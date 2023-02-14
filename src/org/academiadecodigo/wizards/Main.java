@@ -1,10 +1,7 @@
 package org.academiadecodigo.wizards;
 
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-
 public class Main {
     public static void main(String[] args) {
-        Rectangle rect = new Rectangle();
-        rect.draw();
+        Game game = new Game(70, 40, 20);
     }
 }

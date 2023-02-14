@@ -1,0 +1,22 @@
+package org.academiadecodigo.wizards;
+
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.wizards.objects.Wizard;
+import org.academiadecodigo.wizards.objects.Enemy;
+
+public class Game {
+    private final int WIDTH;
+    private final int HEIGHT;
+    private final int CELL_SIZE;
+    private Wizard wiz = new Wizard();
+    private Enemy enemy = new Enemy();
+
+    public Game(int width, int height, int cellSize) {
+        WIDTH = width;
+        HEIGHT = height;
+        CELL_SIZE = cellSize;
+        Rectangle map = new Rectangle(10, 10, WIDTH*CELL_SIZE, HEIGHT*CELL_SIZE);
+        map.draw();
+
+    }
+}
