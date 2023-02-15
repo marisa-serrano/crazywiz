@@ -2,11 +2,11 @@ package org.academiadecodigo.wizards.objects;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 
-public class Wizard extends GameObject {
+public class Wizard extends Character {
 
     public Wizard(){
         super(30, 40, 20);
-        super.getShape().setColor(Color.BLUE);
-        super.getShape().fill();
+        super.setColor(Color.BLUE);
+        super.fill();
     }
 }

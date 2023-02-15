@@ -3,6 +3,7 @@ package org.academiadecodigo.wizards;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.wizards.objects.Wizard;
 import org.academiadecodigo.wizards.objects.Enemy;
+import org.academiadecodigo.wizards.position.Direction;
 
 public class Game {
     private final int WIDTH;
@@ -17,6 +18,5 @@ public class Game {
         CELL_SIZE = cellSize;
         Rectangle map = new Rectangle(10, 10, WIDTH*CELL_SIZE, HEIGHT*CELL_SIZE);
         map.draw();
-
     }
 }
