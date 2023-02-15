@@ -12,16 +12,16 @@ public class Character extends GameObject{
     public void move(Direction dir){
         switch(dir){
             case UP:
-                super.translate(0, -speed);
+                this.translate(0, -speed);
                 break;
             case DOWN:
-                super.translate(0, speed);
+                this.translate(0, speed);
                 break;
             case LEFT:
-                super.translate(-speed, 0);
+                this.translate(-speed, 0);
                 break;
             case RIGHT:
-                super.translate(speed, 0);
+                this.translate(speed, 0);
                 break;
         }
         super.fill();
