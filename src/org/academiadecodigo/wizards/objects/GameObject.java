@@ -11,4 +11,8 @@ public class GameObject extends Rectangle {
     public GameObject(int x, int y, int width, int height) {
         super(x, y, width, height);
     }
+
+    public GameObject() {
+        super();
+    }
 }

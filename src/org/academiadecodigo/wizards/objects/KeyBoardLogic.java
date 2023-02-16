@@ -62,7 +62,15 @@ public class KeyBoardLogic implements KeyboardHandler {
         if (keyboardEvent.getKey() == rightArrow.getKey()) {
             wiz.setAim(Direction.RIGHT);
         }
-
+        if (keyboardEvent.getKey() == leftArrow.getKey()) {
+            wiz.setAim(Direction.LEFT);
+        }
+        if (keyboardEvent.getKey() == upArrow.getKey()) {
+            wiz.setAim(Direction.UP);
+        }
+        if (keyboardEvent.getKey() == downArrow.getKey()) {
+            wiz.setAim(Direction.DOWN);
+        }
     }
 
     @Override
