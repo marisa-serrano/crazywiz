@@ -14,44 +14,37 @@ public class KeyBoardLogic implements KeyboardHandler {
 
     private Keyboard keyboard;
 
-    private KeyboardEvent right, left, up, down, space;
-    private Character wiz;
-    public KeyBoardLogic (Character wiz) {
+    private KeyboardEvent right, left, up, down, space, rightArrow, leftArrow, upArrow, downArrow;
+    private Wizard wiz;
+
+    public KeyBoardLogic(Wizard wiz) {
         this.wiz = wiz;
         this.keyboard = new Keyboard(this);
-        right = new KeyboardEvent();
-        right.setKey(KeyboardEvent.KEY_D);
-        right.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        this.keyboard.addEventListener(right);
 
-        left = new KeyboardEvent();
-        left.setKey(KeyboardEvent.KEY_A);
-        left.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        this.keyboard.addEventListener(left);
+        right = setEvent(KeyboardEvent.KEY_D);
+        left = setEvent(KeyboardEvent.KEY_A);
+        up = setEvent(KeyboardEvent.KEY_W);
+        down = setEvent(KeyboardEvent.KEY_S);
+        space = setEvent(KeyboardEvent.KEY_SPACE);
+        rightArrow = setEvent(KeyboardEvent.KEY_RIGHT);
+        leftArrow = setEvent(KeyboardEvent.KEY_LEFT);
+        upArrow = setEvent(KeyboardEvent.KEY_UP);
+        downArrow = setEvent(KeyboardEvent.KEY_DOWN);
+    }
 
-
-        up = new KeyboardEvent();
-        up.setKey(KeyboardEvent.KEY_W);
-        up.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        this.keyboard.addEventListener(up);
-
-
-        down = new KeyboardEvent();
-        down.setKey(KeyboardEvent.KEY_S);
-        down.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        this.keyboard.addEventListener(down);
-
-        space = new KeyboardEvent();
-        space.setKey(KeyboardEvent.KEY_SPACE);
-        space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        this.keyboard.addEventListener(space);
+    public KeyboardEvent setEvent(int key) {
+        KeyboardEvent e = new KeyboardEvent();
+        e.setKey(key);
+        e.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        this.keyboard.addEventListener(e);
+        return e;
     }
 
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
-        if(keyboardEvent.getKey() == right.getKey()){
+        if (keyboardEvent.getKey() == right.getKey()) {
             wiz.move(Direction.RIGHT);
         }
         if (keyboardEvent.getKey() == left.getKey()) {
@@ -64,10 +57,14 @@ public class KeyBoardLogic implements KeyboardHandler {
             wiz.move(Direction.DOWN);
         }
         if (keyboardEvent.getKey() == space.getKey()) {
-            System.out.println("FIREBALL"); 
+            wiz.castSpell();
+        }
+        if (keyboardEvent.getKey() == rightArrow.getKey()) {
+            wiz.setAim(Direction.RIGHT);
         }
 
     }
+
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
