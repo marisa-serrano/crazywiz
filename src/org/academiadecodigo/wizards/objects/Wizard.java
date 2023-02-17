@@ -4,10 +4,10 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.wizards.position.Direction;
 
 public class Wizard extends Character {
-    private Direction aim;
+    private Direction aim = Direction.RIGHT;
 
     public Wizard(){
-        super(30, 40, 20);
+        super(30, 40, 20, 5);
         super.setColor(Color.BLUE);
         super.fill();
     }
@@ -16,7 +16,7 @@ public class Wizard extends Character {
         aim = dir;
     }
 
-    public void castSpell() {
-        Spell spell = new Spell(getX(), getY(), aim);
+    public  Spell castSpell() {
+        return new Spell(getX(), getY(), aim);
     }
 }

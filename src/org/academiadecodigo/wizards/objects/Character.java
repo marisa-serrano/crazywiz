@@ -6,16 +6,10 @@ public class Character extends GameObject {
     private int speed;
     private int health = 100;
     private boolean dead;
-    public Character(int x, int y, int size) {
+    public Character(int x, int y, int size, int speed) {
         super(x, y, size);
-        speed = 5;
+        this.speed = speed;
     }
-
-    public Character(int x, int y, int width, int height) {
-        super(x, y, width, height);
-        speed = 5;
-    }
-
 
     public void move(Direction dir) {
         if (!dead) {

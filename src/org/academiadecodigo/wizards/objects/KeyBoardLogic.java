@@ -4,6 +4,7 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.wizards.Game;
 import org.academiadecodigo.wizards.position.Direction;
 
 import javax.swing.plaf.basic.BasicTreeUI;
@@ -16,9 +17,10 @@ public class KeyBoardLogic implements KeyboardHandler {
 
     private KeyboardEvent right, left, up, down, space, rightArrow, leftArrow, upArrow, downArrow;
     private Wizard wiz;
-
-    public KeyBoardLogic(Wizard wiz) {
+    private Game game;
+    public KeyBoardLogic(Wizard wiz, Game game) {
         this.wiz = wiz;
+        this.game = game;
         this.keyboard = new Keyboard(this);
 
         right = setEvent(KeyboardEvent.KEY_D);
@@ -57,7 +59,7 @@ public class KeyBoardLogic implements KeyboardHandler {
             wiz.move(Direction.DOWN);
         }
         if (keyboardEvent.getKey() == space.getKey()) {
-            wiz.castSpell();
+            game.createSpell();
         }
         if (keyboardEvent.getKey() == rightArrow.getKey()) {
             wiz.setAim(Direction.RIGHT);
