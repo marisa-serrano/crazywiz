@@ -85,6 +85,7 @@ public class Game {
         while (true) {
             enemyMovement();
             spellMovement();
+            CollisionDetection.spellCollision(spells, enemies);
             try{
                 Thread.sleep(100);
             }

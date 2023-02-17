@@ -32,10 +32,13 @@ public class Character extends GameObject {
     }
 
     public void hit() {
+        System.out.println("hit");
         if (!dead) {
             health -= 50;
             if (health <= 0) {
                 dead = true;
+                this.delete();
+                System.out.println("hit!");
             }
         }
     }
