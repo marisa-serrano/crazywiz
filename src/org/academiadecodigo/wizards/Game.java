@@ -73,13 +73,6 @@ public class Game {
     public void createSpell (){
         spells.add(wiz.castSpell());
     }
-    public void objectCollision(Spell spell, Enemy enemy) {
-        int enemyXi = enemy.getX();
-        int enemyXf = enemyXi + enemy.getWidth();
-        if (spell.getX() == enemy.getX() && spell.getY() == enemy.getY()) {
-            spell.setCollision();
-        }
-    }
 
     public void gameLoop() {
         while (true) {
@@ -87,7 +80,7 @@ public class Game {
             spellMovement();
             CollisionDetection.spellCollision(spells, enemies);
             try{
-                Thread.sleep(100);
+                Thread.sleep(200);
             }
             catch (InterruptedException e){
                 System.out.println(e.getMessage());

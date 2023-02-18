@@ -15,7 +15,7 @@ public class KeyBoardLogic implements KeyboardHandler {
 
     private Keyboard keyboard;
 
-    private KeyboardEvent right, left, up, down, space, rightArrow, leftArrow, upArrow, downArrow;
+    private KeyboardEvent right, left, up, down, space, rightArrow, leftArrow, upArrow, downArrow, print;
     private Wizard wiz;
     private Game game;
     public KeyBoardLogic(Wizard wiz, Game game) {
@@ -32,6 +32,7 @@ public class KeyBoardLogic implements KeyboardHandler {
         leftArrow = setEvent(KeyboardEvent.KEY_LEFT);
         upArrow = setEvent(KeyboardEvent.KEY_UP);
         downArrow = setEvent(KeyboardEvent.KEY_DOWN);
+        print = setEvent(KeyboardEvent.KEY_P);
     }
 
     public KeyboardEvent setEvent(int key) {
@@ -47,16 +48,24 @@ public class KeyBoardLogic implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
         if (keyboardEvent.getKey() == right.getKey()) {
-            wiz.move(Direction.RIGHT);
+            if(wiz.getX() + wiz.getSpeed() <= 1450) {
+                wiz.move(Direction.RIGHT);
+            }
         }
         if (keyboardEvent.getKey() == left.getKey()) {
-            wiz.move(Direction.LEFT);
+            if (wiz.getX() - wiz.getSpeed() >= 52) {
+                wiz.move(Direction.LEFT);
+            }
         }
         if (keyboardEvent.getKey() == up.getKey()) {
-            wiz.move(Direction.UP);
+            if (wiz.getY() - wiz.getSpeed() >= 51) {
+                wiz.move(Direction.UP);
+            }
         }
         if (keyboardEvent.getKey() == down.getKey()) {
-            wiz.move(Direction.DOWN);
+            if (wiz.getY() + wiz.getSpeed() <= 738) {
+                wiz.move(Direction.DOWN);
+            }
         }
         if (keyboardEvent.getKey() == space.getKey()) {
             game.createSpell();
@@ -72,6 +81,9 @@ public class KeyBoardLogic implements KeyboardHandler {
         }
         if (keyboardEvent.getKey() == downArrow.getKey()) {
             wiz.setAim(Direction.DOWN);
+        }
+        if (keyboardEvent.getKey() == print.getKey()) {
+            System.out.println(wiz.getX() + ", " + wiz.getY());
         }
     }
 

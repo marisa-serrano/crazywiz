@@ -42,4 +42,8 @@ public class Character extends GameObject {
             }
         }
     }
+
+    public int getSpeed() {
+        return speed;
+    }
 }

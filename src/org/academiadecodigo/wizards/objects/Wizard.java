@@ -7,7 +7,7 @@ public class Wizard extends Character {
     private Direction aim = Direction.RIGHT;
 
     public Wizard(){
-        super(30, 40, 20, 5);
+        super(52, 51, 20, 10);
         super.setColor(Color.BLUE);
         super.fill();
     }
