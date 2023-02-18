@@ -29,4 +29,8 @@ public class Spell extends Character {
     public Direction getDirection() {
         return direction;
     }
+
+    public int[] getPos(){
+        return new int[] {this.getX(), this.getY()};
+    }
 }

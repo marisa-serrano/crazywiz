@@ -15,6 +15,11 @@ public class CollisionDetection {
         public int getY(){
             return this.y;
         }
+
+        @Override
+        public String toString(){
+            return x + "," + y;
+        }
     }
     public static void spellCollision(LinkedList<Spell> spells, LinkedList<Enemy> enemies){
         for(int s = 0; s < spells.size(); s++){
@@ -43,13 +48,14 @@ public class CollisionDetection {
         }
 
         // check collision
-        boolean hasCollided = false;
-
-        for(Pos spellPixel : spellPixels){
-            if(enemyPixels.contains(spellPixel)){
-                hasCollided = true;
-            }
+        for(int s = 0; s < spellPixels.size(); s++){
+           if(spellPixels.get(s).getX() >= enemy.getX() && spellPixels.get(s).getX() <= enemy.getX() + enemy.getWidth()){
+               if(spellPixels.get(s).getY() >= enemy.getY() && spellPixels.get(s).getY() <= enemy.getY() + enemy.getHeight()) {
+                   System.out.println("hey hey! bam bam!");
+                   return true;
+               }
+           }
         }
-        return hasCollided;
+        return false;
     }
 }
