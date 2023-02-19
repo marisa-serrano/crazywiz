@@ -26,6 +26,10 @@ public class Spell extends Character {
         this.delete();
     }
 
+    public boolean hasCollided(){
+        return this.collision;
+    }
+
     public Direction getDirection() {
         return direction;
     }

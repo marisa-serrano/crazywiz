@@ -22,9 +22,12 @@ public class CollisionDetection {
         }
     }
     public static void spellCollision(LinkedList<Spell> spells, LinkedList<Enemy> enemies){
+        if(spells.isEmpty() || enemies.isEmpty()){
+            return;
+        }
         for(int s = 0; s < spells.size(); s++){
             for(int e = 0; e < spells.size(); e++){
-                if(checkCollision(spells.get(s), enemies.get(e))){
+                if (checkCollision(spells.get(s), enemies.get(e))) {
                     enemies.get(e).hit();
                     spells.get(s).delete();
                     spells.remove(s);

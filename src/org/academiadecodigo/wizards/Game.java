@@ -1,6 +1,5 @@
 package org.academiadecodigo.wizards;
 
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.wizards.objects.*;
 import org.academiadecodigo.wizards.position.Direction;
@@ -79,6 +78,12 @@ public class Game {
             enemyMovement();
             spellMovement();
             CollisionDetection.spellCollision(spells, enemies);
+            for(Enemy enemy : enemies){
+                if(enemy.isDead()){
+                    enemies.remove(enemy);
+                }
+            }
+
             try{
                 Thread.sleep(200);
             }

@@ -43,6 +43,10 @@ public class Character extends GameObject {
         }
     }
 
+    public boolean isDead(){
+        return this.dead;
+    }
+
     public int getSpeed() {
         return speed;
     }
