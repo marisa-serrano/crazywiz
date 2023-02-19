@@ -26,7 +26,7 @@ public class CollisionDetection {
             return;
         }
         for(int s = 0; s < spells.size(); s++){
-            for(int e = 0; e < spells.size(); e++){
+            for(int e = 0; e < enemies.size(); e++){
                 if (checkCollision(spells.get(s), enemies.get(e))) {
                     enemies.get(e).hit();
                     spells.get(s).delete();
