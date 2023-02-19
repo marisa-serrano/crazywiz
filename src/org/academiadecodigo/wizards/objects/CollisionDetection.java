@@ -34,14 +34,23 @@ public class CollisionDetection {
             }
         }
     }
+    public static void wizCollision (LinkedList<Enemy> enemies, Wizard wiz){
+        if(!enemies.isEmpty()) {
+            for (Enemy enemy : enemies) {
+                if (checkCollision(wiz, enemy)){
+                    wiz.hit();
+                }
+            }
+        }
+    }
 
-    private static boolean checkCollision(Spell spell, Enemy enemy){
+    private static boolean checkCollision(Character character, Enemy enemy){
         LinkedList<Pos> spellPixels = new LinkedList<>();
         LinkedList<Pos> enemyPixels = new LinkedList<>();
         // spell
-        for(int x = 0; x < spell.getWidth(); x++){
-            for(int y = 0; y < spell.getHeight(); y++){
-                spellPixels.add(new Pos(spell.getX() + x, spell.getY() + y));
+        for(int x = 0; x < character.getWidth(); x++){
+            for(int y = 0; y < character.getHeight(); y++){
+                spellPixels.add(new Pos(character.getX() + x, character.getY() + y));
             }
         }
         // enemy
@@ -62,4 +71,6 @@ public class CollisionDetection {
         }
         return false;
     }
+
+
 }

@@ -25,8 +25,6 @@ public class Game {
         keyBoardLogic = new KeyBoardLogic(wiz, this);
         WIDTH = width;
         HEIGHT = height;
-        //Rectangle map = new Rectangle(10, 10, WIDTH, HEIGHT);
-        //map.draw();
         enemiesSpawn(2);
         gameLoop();
     }
@@ -78,6 +76,7 @@ public class Game {
             enemyMovement();
             spellMovement();
             CollisionDetection.spellCollision(spells, enemies);
+            CollisionDetection.wizCollision(enemies, wiz);
             for(Enemy enemy : enemies){
                 if(enemy.isDead()){
                     enemies.remove(enemy);
