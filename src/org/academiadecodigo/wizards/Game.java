@@ -83,7 +83,12 @@ public class Game {
                     enemies.remove(enemy);
                 }
             }
-
+            for (Spell spell : spells){
+                spell.checkBounds();
+                if(spell.hasCollided()){
+                    spells.remove(spell);
+                }
+            }
             try{
                 Thread.sleep(200);
             }

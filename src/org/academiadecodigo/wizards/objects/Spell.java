@@ -7,7 +7,7 @@ public class Spell extends Character {
     private boolean collision;
 
     public Spell(int x, int y, Direction dir) {
-        super(x, y, 5, "resources/fireballRight.png");
+        super(x, y, 15, "resources/fireballRight.png");
 
 
         if (dir == Direction.DOWN || dir == Direction.UP) {
@@ -37,4 +37,19 @@ public class Spell extends Character {
     public int[] getPos(){
         return new int[] {this.getX(), this.getY()};
     }
+
+    public void checkBounds (){
+            if (!(this.getY() - this.getSpeed() >= 51)) {
+                this.setCollision();
+            }
+            if (!(this.getY() + this.getSpeed() <= 738)) {
+                this.setCollision();
+            }
+            if (!(this.getX() - this.getSpeed() >= 52)) {
+                this.setCollision();
+            }
+            if(!(this.getX() + this.getSpeed() <= 1450)) {
+                this.setCollision();
+            }
+        }
 }

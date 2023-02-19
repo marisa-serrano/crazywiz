@@ -11,20 +11,29 @@ public class Character extends GameObject {
         this.speed = speed;
     }
 
+
     public void move(Direction dir) {
         if (!dead) {
             switch (dir) {
                 case UP:
-                    this.translate(0, -speed);
+                    if (this.getY() - this.speed >= 51) {
+                        this.translate(0, -speed);
+                    }
                     break;
                 case DOWN:
-                    this.translate(0, speed);
+                    if (this.getY() + this.speed <= 738) {
+                        this.translate(0, speed);
+                    }
                     break;
                 case LEFT:
-                    this.translate(-speed, 0);
+                    if (this.getX() - this.speed >= 52) {
+                        this.translate(-speed, 0);
+                    }
                     break;
                 case RIGHT:
-                    this.translate(speed, 0);
+                    if(this.getX() + this.speed <= 1450) {
+                        this.translate(speed, 0);
+                    }
                     break;
             }
             super.draw();

@@ -48,24 +48,16 @@ public class KeyBoardLogic implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
         if (keyboardEvent.getKey() == right.getKey()) {
-            if(wiz.getX() + wiz.getSpeed() <= 1450) {
                 wiz.move(Direction.RIGHT);
-            }
         }
         if (keyboardEvent.getKey() == left.getKey()) {
-            if (wiz.getX() - wiz.getSpeed() >= 52) {
                 wiz.move(Direction.LEFT);
-            }
         }
         if (keyboardEvent.getKey() == up.getKey()) {
-            if (wiz.getY() - wiz.getSpeed() >= 51) {
                 wiz.move(Direction.UP);
-            }
         }
         if (keyboardEvent.getKey() == down.getKey()) {
-            if (wiz.getY() + wiz.getSpeed() <= 738) {
                 wiz.move(Direction.DOWN);
-            }
         }
         if (keyboardEvent.getKey() == space.getKey()) {
             game.createSpell();
