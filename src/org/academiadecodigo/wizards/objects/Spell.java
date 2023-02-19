@@ -7,7 +7,7 @@ public class Spell extends Character {
     private boolean collision;
 
     public Spell(int x, int y, Direction dir) {
-        super(x, y, 5, 10);
+        super(x, y, 5, "resources/fireballRight.png");
 
 
         if (dir == Direction.DOWN || dir == Direction.UP) {
@@ -17,7 +17,7 @@ public class Spell extends Character {
             this.grow(15, 0);
         }
         this.direction = dir;
-        this.fill();
+        this.draw();
         move(dir);
     }
 

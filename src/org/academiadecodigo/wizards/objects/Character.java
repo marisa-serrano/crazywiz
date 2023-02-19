@@ -6,8 +6,8 @@ public class Character extends GameObject {
     private int speed;
     private int health = 100;
     private boolean dead;
-    public Character(int x, int y, int size, int speed) {
-        super(x, y, size);
+    public Character(int x, int y, int speed, String string) {
+        super(x, y, string);
         this.speed = speed;
     }
 
@@ -27,7 +27,7 @@ public class Character extends GameObject {
                     this.translate(speed, 0);
                     break;
             }
-            super.fill();
+            super.draw();
         }
     }
 

@@ -7,9 +7,11 @@ public class Wizard extends Character {
     private Direction aim = Direction.RIGHT;
 
     public Wizard(){
-        super(52, 51, 20, 10);
-        super.setColor(Color.BLUE);
-        super.fill();
+        super(52, 51, 20, "resources/wizard.png");
+        //super.setColor(Color.BLUE);
+        super.draw();
+        //wiz = new Picture(52, 51, "resources/wizard.png");
+        //wiz.draw();;
     }
 
     public void setAim(Direction dir){
