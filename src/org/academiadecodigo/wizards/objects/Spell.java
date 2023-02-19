@@ -9,6 +9,19 @@ public class Spell extends Character {
     public Spell(int x, int y, Direction dir) {
         super(x, y, 15, "resources/fireballRight.png");
 
+        switch (dir){
+            case UP:
+                super.load("resources/fireballUp.png");
+                break;
+            case DOWN:
+                super.load("resources/fireballDown.png");
+                break;
+            case LEFT:
+                super.load("resources/fireballLeft.png");
+                break;
+            default:
+                break;
+        }
 
         if (dir == Direction.DOWN || dir == Direction.UP) {
             this.grow(0, 15);
